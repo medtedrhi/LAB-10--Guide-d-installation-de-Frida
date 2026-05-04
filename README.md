@@ -100,9 +100,10 @@ Interceptor.attach(Module.getExportByName(null, "recv"), {
 
 Commande :
 
-frida -U -n "com.example.app" -l scripts/hello_native.js
+frida -U -f "com.example.app" -l scripts/hello_native.js
 
-Preuve :
+<img width="1685" height="523" alt="image" src="https://github.com/user-attachments/assets/346197ab-9807-4eb8-b72e-d73f1e0741a5" />
+
 
 10. Console interactive Frida
 
@@ -119,7 +120,9 @@ Java.available
 Process.id
 Process.platform
 
-Preuve :
+<img width="1555" height="799" alt="image" src="https://github.com/user-attachments/assets/1f6a1fa8-a003-4323-9016-4b195721a13e" />
+<img width="1188" height="249" alt="image" src="https://github.com/user-attachments/assets/1e28a27e-3e4d-4516-b378-6d88423e30d6" />
+
 
 11. Observation des bibliothèques de chiffrement
 
@@ -131,7 +134,8 @@ Process.enumerateModules().filter(m =>
   m.name.indexOf("boring") !== -1
 )
 
-Preuve :
+<img width="1595" height="986" alt="image" src="https://github.com/user-attachments/assets/fb7cce49-afff-4b68-b4d9-7f461a8389aa" />
+
 
 12. Observation réseau
 
@@ -140,7 +144,10 @@ Scripts utilisés :
 hook_connect.js
 hook_network.js
 
-Preuve :
+<img width="1589" height="554" alt="image" src="https://github.com/user-attachments/assets/5efa289a-5438-4903-85ca-80cc81a39853" />
+<img width="1629" height="643" alt="image" src="https://github.com/user-attachments/assets/ec0455e9-dd2d-4e1a-9fc2-9e38520812ac" />
+
+
 
 13. Observation des accès fichiers
 
@@ -148,41 +155,39 @@ Script utilisé :
 
 hook_file.js
 
-Preuve :
+<img width="1916" height="940" alt="image" src="https://github.com/user-attachments/assets/36beff24-c766-4bec-a6cf-a6f1602abe92" />
+
 
 14. Hooks Java
 
 Scripts utilisés :
 
 hook_prefs.js
+
+<img width="1721" height="350" alt="image" src="https://github.com/user-attachments/assets/6d5a6a45-9044-4192-9aa3-c151c4cbbcdc" />
+
 hook_prefs_write.js
+
+<img width="1602" height="398" alt="image" src="https://github.com/user-attachments/assets/84215e5a-d22d-4b36-81e4-97b415d28adf" />
+
 hook_sqlite.js
+
+<img width="1763" height="410" alt="image" src="https://github.com/user-attachments/assets/2eedfed7-50d6-4f41-9c4a-7d0c17fa398e" />
+
 hook_debug.js
+
+<img width="1669" height="440" alt="image" src="https://github.com/user-attachments/assets/f89c4283-da05-4bb6-8c82-8c903408695e" />
+
 hook_runtime.js
+
+<img width="1643" height="397" alt="image" src="https://github.com/user-attachments/assets/615324c5-c359-42ba-ab3a-3e211b01c644" />
+
 hook_file_java.js
 
-Preuve :
+<img width="1919" height="982" alt="image" src="https://github.com/user-attachments/assets/1822b790-f788-4664-a5f0-55d95ec1fe01" />
 
-15. Dépannage
 
-Erreur simulée : arrêt de frida-server.
 
-Commande :
-
-adb shell pkill frida-server
-frida-ps -U
-
-Résultat : Frida ne peut plus se connecter au serveur distant.
-
-Correction :
-
-adb shell "nohup /data/local/tmp/frida-server -l 0.0.0.0 >/dev/null 2>&1 &"
-adb forward tcp:27042 tcp:27042
-adb forward tcp:27043 tcp:27043
-frida-ps -Uai
-
-Preuves :
-
-16. Conclusion
+#Conclusion
 
 Ce laboratoire valide l’installation complète de Frida, le déploiement de frida-server sur Android, l’injection de scripts JavaScript, l’utilisation de la console interactive et l’observation de comportements réseau, fichiers, mémoire et Java.
