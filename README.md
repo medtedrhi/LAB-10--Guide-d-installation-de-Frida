@@ -22,8 +22,10 @@ python -m pip install --upgrade frida frida-tools
 frida --version
 frida-ps --version
 python -c "import frida; print(frida.__version__)"
+```
 
-Preuve :
+<img width="932" height="203" alt="image" src="https://github.com/user-attachments/assets/6e9a8633-1ac6-436d-85cf-0cf932cea7fe" />
+
 
 4. Vérification ADB
 
@@ -32,7 +34,8 @@ Commandes :
 adb version
 adb devices
 
-Preuve :
+<img width="1058" height="223" alt="image" src="https://github.com/user-attachments/assets/97e22ff7-762f-49d6-ad9a-7db4934a40d8" />
+
 
 5. Identification de l’architecture Android
 
@@ -40,7 +43,8 @@ Commande :
 
 adb shell getprop ro.product.cpu.abi
 
-Preuve :
+<img width="724" height="83" alt="image" src="https://github.com/user-attachments/assets/badb7982-02c3-4ae4-ab4c-af8d8e889b03" />
+
 
 Cette information permet de choisir la version compatible de frida-server.
 
@@ -52,7 +56,8 @@ adb push frida-server /data/local/tmp/
 adb shell chmod 755 /data/local/tmp/frida-server
 adb shell "nohup /data/local/tmp/frida-server -l 0.0.0.0 >/dev/null 2>&1 &"
 
-Preuves :
+<img width="1464" height="129" alt="image" src="https://github.com/user-attachments/assets/7628db97-2622-4c27-b358-8d4b98d4ed77" />
+
 
 7. Test de connexion Frida
 
@@ -63,7 +68,9 @@ adb forward tcp:27043 tcp:27043
 frida-ps -U
 frida-ps -Uai
 
-Preuve :
+<img width="1585" height="1005" alt="image" src="https://github.com/user-attachments/assets/102078f2-891c-4ba0-a863-aa4ee22c915e" />
+<img width="1624" height="733" alt="image" src="https://github.com/user-attachments/assets/43cfdf19-4aeb-4990-832e-f0bef344b863" />
+
 
 8. Injection Java minimale
 
@@ -77,7 +84,7 @@ Commande :
 
 frida -U -f com.example.app -l scripts/hello.js
 
-Preuve :
+<img width="1612" height="540" alt="image" src="https://github.com/user-attachments/assets/308f1f87-df68-4b2b-87ce-404a83ae2eae" />
 
 9. Injection native minimale
 
